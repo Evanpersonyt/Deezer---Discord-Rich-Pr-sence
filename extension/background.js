@@ -19,6 +19,6 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
         console.error("❌ Erreur serveur lors de l'envoi de la track");
       }
     })
-    // .catch(err => console.error("❌ Erreur fetch:", err));
   }
 });
+
