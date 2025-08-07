@@ -1,1 +1,1 @@
-# Deezer---Discord-Rich-Pr-sence
+# Deezer -> Discord Rich Présence
