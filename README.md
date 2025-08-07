@@ -8,3 +8,5 @@ For sending your musique on discord rich presence
 
 
 Dowload all and follow these steps :
+
+Go on https://discord.dev/
