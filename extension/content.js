@@ -19,17 +19,17 @@ function detectTrack() {
         durationText
       });
 
-      console.log('🎵 Artiste détecté :', artists);
-      console.log('🎵 Titre détecté :', title);
-      console.log('🖼️ Pochette trouvée :', cover);
-      console.log('⏱️ Durée :', durationText);
+      console.log('🎵 Artist detected :', artists);
+      console.log('🎵 Title detected :', title);
+      console.log('🖼️ Cover found :', cover);
+      console.log('⏱️ Time :', durationText);
     }
   } catch (err) {
     if (!String(err).includes('context invalidated')) {
-      console.warn('Erreur dans detectTrack:', err);
+      console.warn('Error in detectTrack:', err);
     }
   }
 }
 
-// Vérifie toutes les 0.5 secondes
 setInterval(detectTrack, 500);
+
