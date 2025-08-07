@@ -1,0 +1,21 @@
+{
+  "manifest_version": 3,
+  "name": "Deezer Track Detector",
+  "version": "1.0",
+  "permissions": [
+    "scripting",
+    "activeTab"
+  ],
+  "host_permissions": [
+    "https://www.deezer.com/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://www.deezer.com/*"],
+      "js": ["content.js"]
+    }
+  ]
+}
