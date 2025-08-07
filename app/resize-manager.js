@@ -10,7 +10,7 @@ const PORT = 3000;
 
 
 app.use(cors({
-  origin: 'chrome-extension://jjhlpbaecoeanmdoioopmmpdbmbiogcm' // ← ton vrai ID
+  origin: 'chrome-extension://HERE' // ← Replace HERE by your Extension ID ! <<<<<<<-------
 }));
 
 app.use(express.json());
@@ -28,7 +28,7 @@ async function downloadAndResize(url, outputFile) {
     .resize(512, 512)
     .toFile(outputFile);
 
-  console.log(`✅ Image redimensionnée sauvegardée sous : ${outputFile}`);
+  console.log(`✅ Cover resized saved under : ${outputFile}`);
 }
 
 
@@ -38,7 +38,7 @@ app.post('/update', async (req, res) => {
     const { artist, title, cover } = req.body;
     
     if (!title || !artist || !cover) {
-      return res.status(400).send('track et cover sont requis');
+      return res.status(400).send('track and cover are requied');
     }
     const track = `${artist} - ${title}`;
 
@@ -47,15 +47,16 @@ app.post('/update', async (req, res) => {
 
     await downloadAndResize(cover, outputFile);
 
-    res.status(200).send('Image téléchargée et redimensionnée');
+    res.status(200).send('Cover Downloaded and resized successfully');
   } catch (err) {
-    console.error('❌ Erreur dans /update:', err);
-    res.status(500).send('Erreur serveur');
+    console.error('❌ Error in /update:', err);
+    res.status(500).send('Error server');
   }
 });
 
 
 app.listen(PORT, () => {
-  console.log(`🚀 Serveur démarré sur http://localhost:${PORT}`);
+  console.log(`🚀 Server started on http://localhost:${PORT}`);
 });
+
 
